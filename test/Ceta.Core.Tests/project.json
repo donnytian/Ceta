@@ -1,0 +1,21 @@
+﻿{
+  "dependencies": {
+    "_Ceta.TestingFramework": "1.0.0-*",
+    "Ceta.Core": "1.0.0-*",
+    "xunit": "2.2.0-*"
+  },
+
+  "frameworks": {
+    "netcoreapp1.1": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "version": "1.2.0-*",
+          "type": "platform"
+        }
+      }
+    },
+    "net451": {}
+  },
+
+  "testRunner": "xunit"
+}
