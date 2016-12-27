@@ -2,14 +2,15 @@
   "dependencies": {
     "_Ceta.TestingFramework": "1.0.0-*",
     "Ceta.Core": "1.0.0-*",
+    "dotnet-test-xunit": "2.2.0-*",
     "xunit": "2.2.0-*"
   },
 
   "frameworks": {
-    "netcoreapp1.1": {
+    "netcoreapp1.0": {
       "dependencies": {
         "Microsoft.NETCore.App": {
-          "version": "1.2.0-*",
+          "version": "1.0.1-*",
           "type": "platform"
         }
       }
