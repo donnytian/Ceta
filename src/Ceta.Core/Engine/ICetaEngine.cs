@@ -1,4 +1,6 @@
-﻿namespace Ceta.Core
+﻿using System;
+
+namespace Ceta.Core
 {
     /// <summary>
     /// Represents a load test engine to overall control and monitor the process.
@@ -9,6 +11,11 @@
         /// Indicates whether a test is still running or not.
         /// </summary>
         bool IsRunning { get; }
+
+        /// <summary>
+        /// The <see cref="IServiceProvider"/> for the test.
+        /// </summary>
+        IServiceProvider Services { get; }
 
         /// <summary>
         /// Initializes and starts the test.

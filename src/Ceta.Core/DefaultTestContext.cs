@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Ceta.Core
 {
@@ -31,6 +28,6 @@ namespace Ceta.Core
         public IDictionary<object, object> Items { get; protected set; }
 
         /// <inheritdoc />
-        public TestStatus TestStatus { get; internal set; }
+        public TestStatus TestStatus { get; set; }
     }
 }

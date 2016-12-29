@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Ceta.Core.Builder
+namespace Ceta.Core
 {
     /// <summary>
     /// Provides the mechanisms to configure an test thread's pipeline.

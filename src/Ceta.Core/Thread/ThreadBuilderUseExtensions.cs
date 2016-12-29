@@ -5,16 +5,17 @@ using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Internal;
 
-namespace Ceta.Core.Builder
+namespace Ceta.Core
 {
     /// <summary>
     /// Extension methods for adding middleware.
     /// </summary>
-    public static class UseExtensions
+    public static class ThreadBuilderUseExtensions
     {
         private const string InvokeMethodName = "Invoke";
 
-        private static readonly MethodInfo GetServiceInfo = typeof(UseExtensions).GetMethod(nameof(GetService), BindingFlags.NonPublic | BindingFlags.Static);
+        private static readonly MethodInfo GetServiceInfo = typeof(ThreadBuilderUseExtensions)
+            .GetMethod(nameof(GetService), BindingFlags.NonPublic | BindingFlags.Static);
 
         /// <summary>
         /// Adds a middleware delegate defined in-line to the application's request pipeline.

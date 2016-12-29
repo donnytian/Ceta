@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Internal;
 
-namespace Ceta.Core.Builder
+namespace Ceta.Core
 {
     /// <summary>
     /// A default implementation of <see cref="IThreadBuilder"/>.

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Ceta.Core
 {
@@ -16,8 +13,8 @@ namespace Ceta.Core
         IDictionary<object, object> Items { get; }
 
         /// <summary>
-        /// Gets the test status.
+        /// Gets or sets the test status.
         /// </summary>
-        TestStatus TestStatus { get; }
+        TestStatus TestStatus { get; set; }
     }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace Ceta.Core.Builder
+namespace Ceta.Core
 {
     /// <summary>
     /// Extension methods for adding terminal middleware.
     /// </summary>
-    public static class RunExtensions
+    public static class ThreadBuilderRunExtensions
     {
         /// <summary>
         /// Adds a terminal middleware delegate to the thread's pipeline.

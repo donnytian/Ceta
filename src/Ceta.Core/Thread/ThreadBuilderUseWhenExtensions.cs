@@ -1,13 +1,13 @@
 ﻿using System;
 
-namespace Ceta.Core.Builder
+namespace Ceta.Core
 {
     using Predicate = Func<ITestContext, bool>;
 
     /// <summary>
     /// Extension methods for <see cref="IThreadBuilder"/>.
     /// </summary>
-    public static class UseWhenExtensions
+    public static class ThreadBuilderUseWhenExtensions
     {
         /// <summary>
         /// Conditionally creates a branch in the thread pipeline that is rejoined to the main pipeline.
