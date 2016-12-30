@@ -14,8 +14,7 @@
           "type": "platform"
         }
       }
-    },
-    "net451": {}
+    }
   },
 
   "testRunner": "xunit"

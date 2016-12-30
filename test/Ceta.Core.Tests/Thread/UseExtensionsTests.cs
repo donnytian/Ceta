@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using Xunit;
 using _Ceta.TestingFramework.Fakes;
 
-namespace Ceta.Core.Tests.Builder
+namespace Ceta.Core.Tests.Thread
 {
     public class UseExtensionsTests
     {

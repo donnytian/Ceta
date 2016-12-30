@@ -10,21 +10,10 @@
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0-*",
     "Microsoft.Extensions.DependencyInjection": "1.2.0-*",
     "Microsoft.Extensions.Logging": "1.2.0-*",
-    "Microsoft.Extensions.TaskCache.Sources": {
-      "type": "build",
-      "version": "1.2.0-*"
-    },
     "NETStandard.Library": "1.6.2-*"
   },
   "frameworks": {
-    "net451": {
-      "frameworkAssemblies": {
-        "System.Runtime": {
-          "type": "build"
-        }
-      }
-    },
-    "netstandard1.3": {
+    "netstandard1.6": {
       "dependencies": {
         "System.ComponentModel": "4.4.0-*",
         "System.Reflection.TypeExtensions": "4.4.0-*"

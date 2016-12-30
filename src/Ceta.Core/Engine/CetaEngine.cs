@@ -1,7 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Internal;
 using Microsoft.Extensions.Logging;
 
 namespace Ceta.Core
@@ -125,7 +125,7 @@ namespace Ceta.Core
                 return context =>
                 {
                     context.TestStatus = TestStatus.Terminated;
-                    return TaskCache.CompletedTask;
+                    return Task.CompletedTask;
                 };
             }
         }

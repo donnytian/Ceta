@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Internal;
 
 namespace Ceta.Core
 {
@@ -63,7 +62,7 @@ namespace Ceta.Core
         {
             TestDelegate app = context =>
             {
-                return TaskCache.CompletedTask;
+                return Task.CompletedTask;
             };
 
             foreach (var component in _components.Reverse())

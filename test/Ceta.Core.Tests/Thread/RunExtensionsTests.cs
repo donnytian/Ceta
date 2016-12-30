@@ -1,8 +1,8 @@
-﻿using Microsoft.Extensions.Internal;
+﻿using System.Threading.Tasks;
 using Xunit;
 using _Ceta.TestingFramework.Fakes;
 
-namespace Ceta.Core.Tests.Builder
+namespace Ceta.Core.Tests.Thread
 {
     public class RunExtensionsTests
     {
@@ -25,7 +25,7 @@ namespace Ceta.Core.Tests.Builder
             builder.Run(context =>
             {
                 result += "3";
-                return TaskCache.CompletedTask;
+                return Task.CompletedTask;
             });
             builder.Use(next =>
             {
@@ -61,13 +61,12 @@ namespace Ceta.Core.Tests.Builder
             builder.Run(context =>
             {
                 result += "3";
-                return TaskCache.CompletedTask;
+                return Task.CompletedTask;
             });
             builder.Run(context =>
             {
                 result += "4";
-                var t = TaskCache.CompletedTask;
-                return t;
+                return Task.CompletedTask;
             });
 
             builder.Build().Invoke(new DefaultTestContext()).Wait();
