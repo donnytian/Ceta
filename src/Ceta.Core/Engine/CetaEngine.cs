@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,24 +45,25 @@ namespace Ceta.Core
         {
             get
             {
-                EnsureServices();
+                EnsureServiceProvider();
                 return _serviceProvider;
             }
         }
 
         /// <inheritdoc />
-        public virtual void Start()
+        public Task StartAsync()
         {
             _logger = _serviceProvider.GetRequiredService<ILogger<CetaEngine>>();
             _logger.LogInformation("Ceta engine is starting.");
 
-            // TODO
+            var context = new DefaultTestContext(new Dictionary<object, object>(), _config);
+            return ProcessThreadAsync(_thread, context);
         }
 
         /// <inheritdoc />
         public virtual void Stop()
         {
-            // TODO
+            // TODO: Implement Stop logic
         }
 
         /// <summary>
@@ -75,12 +77,13 @@ namespace Ceta.Core
             }
         }
 
-        private void EnsureServices()
+        private void EnsureServiceProvider()
         {
-            if (_services == null)
+            if (_serviceProvider == null)
             {
                 EnsureStartup();
-                _serviceProvider = _startup.ConfigureServices(_services);
+                _startup.ConfigureServices(_services);
+                _serviceProvider = _services.BuildServiceProvider();
             }
         }
 
@@ -98,7 +101,7 @@ namespace Ceta.Core
         {
             try
             {
-                EnsureServices();
+                EnsureServiceProvider();
 
                 var builderFactory = _serviceProvider.GetRequiredService<IThreadBuilderFactory>();
                 var builder = builderFactory.Create();
@@ -124,10 +127,15 @@ namespace Ceta.Core
 
                 return context =>
                 {
-                    context.TestStatus = TestStatus.Terminated;
+                    context.TestStatus = TestStatus.Failed;
                     return Task.CompletedTask;
                 };
             }
+        }
+
+        private Task ProcessThreadAsync(TestDelegate threaDelegate, ITestContext context)
+        {
+            return threaDelegate(context);
         }
     }
 }

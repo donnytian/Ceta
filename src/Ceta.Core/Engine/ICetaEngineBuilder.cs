@@ -15,7 +15,7 @@ namespace Ceta.Core
         ICetaEngine Build();
 
         /// <summary>
-        /// Specify the <see cref="ILoggerFactory"/> to be used by the web host.
+        /// Specify the <see cref="ILoggerFactory"/> to be used by the automation test.
         /// </summary>
         /// <param name="loggerFactory">The <see cref="ILoggerFactory"/> to be used.</param>
         /// <returns>The <see cref="ICetaEngineBuilder"/> itself.</returns>

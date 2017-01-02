@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 
 namespace Ceta.Core
 {
@@ -18,9 +19,9 @@ namespace Ceta.Core
         IServiceProvider Services { get; }
 
         /// <summary>
-        /// Initializes and starts the test.
+        /// Asynchronously starts the automation process.
         /// </summary>
-        void Start();
+        Task StartAsync();
 
         /// <summary>
         /// Stops the test.

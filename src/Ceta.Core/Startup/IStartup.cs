@@ -12,8 +12,7 @@ namespace Ceta.Core
         /// Configures the service collection. This is the inject point for DI.
         /// </summary>
         /// <param name="services">The <see cref="IServiceCollection"/> object.</param>
-        /// <returns>The <see cref="IServiceProvider"/> object.</returns>
-        IServiceProvider ConfigureServices(IServiceCollection services);
+        void ConfigureServices(IServiceCollection services);
 
         /// <summary>
         /// Configures thread builder to build a custom thread.

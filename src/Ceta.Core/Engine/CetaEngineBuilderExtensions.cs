@@ -2,7 +2,7 @@
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Ceta.Core.Engine
+namespace Ceta.Core
 {
     /// <summary>
     /// Extensions for type of <see cref="ICetaEngineBuilder"/>.
@@ -15,15 +15,15 @@ namespace Ceta.Core.Engine
         /// Specify the startup method to be used to configure the thread.
         /// </summary>
         /// <param name="builder">The <see cref="ICetaEngineBuilder"/> to configure.</param>
-        /// <param name="configureApp">The delegate that configures the <see cref="IThreadBuilder"/>.</param>
+        /// <param name="configureThread">The delegate that configures the <see cref="IThreadBuilder"/>.</param>
         /// <returns>The <see cref="ICetaEngineBuilder"/>.</returns>
-        public static ICetaEngineBuilder Configure(this ICetaEngineBuilder builder, Action<IThreadBuilder> configureApp)
+        public static ICetaEngineBuilder Configure(this ICetaEngineBuilder builder, Action<IThreadBuilder> configureThread)
         {
-            if (configureApp == null) { throw new ArgumentNullException(nameof(configureApp)); }
+            if (configureThread == null) { throw new ArgumentNullException(nameof(configureThread)); }
 
             return builder.ConfigureServices(services =>
             {
-                services.AddSingleton<IStartup>(new SimpleStartup(configureApp));
+                services.AddSingleton<IStartup>(new SimpleStartup(configureThread));
             });
         }
 
@@ -53,12 +53,12 @@ namespace Ceta.Core.Engine
         /// <summary>
         /// Specify the startup type to be used by the engine.
         /// </summary>
-        /// <param name="hostBuilder">The <see cref="ICetaEngineBuilder"/> to configure.</param>
+        /// <param name="builder">The <see cref="ICetaEngineBuilder"/> to configure.</param>
         /// <typeparam name ="TStartup">The type containing the startup methods for the application.</typeparam>
         /// <returns>The <see cref="ICetaEngineBuilder"/>.</returns>
-        public static ICetaEngineBuilder UseStartup<TStartup>(this ICetaEngineBuilder hostBuilder) where TStartup : IStartup
+        public static ICetaEngineBuilder UseStartup<TStartup>(this ICetaEngineBuilder builder) where TStartup : IStartup
         {
-            return hostBuilder.UseStartup(typeof(TStartup));
+            return builder.UseStartup(typeof(TStartup));
         }
     }
 }

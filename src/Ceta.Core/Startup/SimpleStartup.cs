@@ -20,9 +20,8 @@ namespace Ceta.Core
         }
 
         /// <inheritdoc />
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
-            return services.BuildServiceProvider();
         }
 
         /// <inheritdoc />
